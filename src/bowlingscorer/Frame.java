@@ -1,3 +1,4 @@
+package bowlingscorer;
 
 public class Frame {
 
@@ -99,9 +100,7 @@ public class Frame {
         return value;
     }
 
-    public void setValue(int value) {
-        this.value = value;
-    }
+    public void setValue(int value) {this.value = value;}
 
     public int getPins() {
         return pins;

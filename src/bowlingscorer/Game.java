@@ -1,9 +1,14 @@
+package bowlingscorer;
+
+import java.util.Arrays;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
 
     private final Frame[] frames;
+
     private int frameNumber;
+
     private int total;
     //TODO: Add to running total
 
@@ -61,6 +66,13 @@ public class Game {
                         calculateSpare();
                     }
                 }
+            }
+        }
+
+        this.total = 0;
+        for (Frame frame : frames) {
+            if (frame != null) {
+                this.total += frame.getValue();
             }
         }
 
@@ -126,9 +138,26 @@ public class Game {
         }
     }
 
+    public int calculateSetFrameTotal(int limit){
+        int total = 0;
+        for (int i = 0 ; i <= limit ; i++) total += this.frames[i].getValue();
+        return total;
+    }
 
     public Frame[] getFrames() {
         return frames;
+    }
+
+    public int getFrameNumber() {
+        return frameNumber;
+    }
+
+    public int getTotal() {
+        return total;
+    }
+
+    public void setTotal(int total) {
+        this.total = total;
     }
 
 }

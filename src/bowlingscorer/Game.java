@@ -33,6 +33,10 @@ public class Game {
     }
 
     public boolean play() {
+        return this.play(-1);
+    }
+
+    public boolean play(int setScore) {
 
         // If a free slot is available for a frame, we create one
         if (this.frames[frameNumber] == null) newFrame();
@@ -41,7 +45,7 @@ public class Game {
 
         // If the current frame is open, we can resolve a previous spare after the first ball and a previous strike
         // after the second
-        int playerScore = ThreadLocalRandom.current().nextInt(0, frames[frameNumber].getPins() + 1);
+        int playerScore = setScore ==-1 ? ThreadLocalRandom.current().nextInt(0, frames[frameNumber].getPins() + 1) : setScore;
         if (this.frames[frameNumber].addBall(playerScore)) {
             // Calculating possible strike(s)
             if (frameNumber > 0) {

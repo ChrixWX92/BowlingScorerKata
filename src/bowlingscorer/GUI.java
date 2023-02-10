@@ -13,6 +13,7 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.*;
 import javafx.scene.text.Font;
@@ -68,6 +69,7 @@ public class GUI {
 
         // Simple interface
         BorderPane borderPane = new BorderPane();
+        borderPane.setBackground(new Background(new BackgroundFill(Color.MOCCASIN, new CornerRadii(5), Insets.EMPTY)));
         HBox buttons = new HBox(button, button2, scoreInput, button3);
         HBox frames = new HBox(this.frames.toArray(new GridPane[0]));
         frames.setAlignment(Pos.CENTER);
@@ -172,7 +174,10 @@ public class GUI {
     }
 
     public GridPane addFramePane(boolean finalFrame, int number) {
+
         GridPane grid = new GridPane();
+
+        grid.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(5), Insets.EMPTY)));
 
         Border standardBorder = new Border(new BorderStroke(Paint.valueOf("Black"), BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderStroke.THIN));
 //        grid.setHgap(10);
